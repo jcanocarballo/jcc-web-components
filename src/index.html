@@ -5,10 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
     <title>Stencil Component Starter</title>
 
+    <link rel="stylesheet" href="/build/jcc-web-components.css">
     <script type="module" src="/build/jcc-web-components.esm.js"></script>
     <script nomodule src="/build/jcc-web-components.js"></script>
   </head>
   <body>
-    <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+    <div class="container">
+      <div class="row">
+        <h3>Botones</h3>
+      </div>
+      <div class="row space-between">
+        <jcc-button text="Aceptar" id="btnAceptar" appearance="primary"></jcc-button>
+        <jcc-button text="Enviar" appearance="secondary"></jcc-button>
+        <jcc-button text="Record" appearance="tertiary"></jcc-button>
+        <jcc-button text="Final" appearance="warning"></jcc-button>
+        <jcc-button text="Borar" appearance="danger"></jcc-button>
+      </div>
+    </div>
+    <script>
+      
+      var btnAceptar = document.querySelector('#btnAceptar');
+      btnAceptar.addEventListener('click', function () {
+        alert("Ejemplo de click");
+      });
+
+    </script>
   </body>
 </html>
