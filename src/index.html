@@ -21,14 +21,37 @@
         <jcc-button text="Final" appearance="warning"></jcc-button>
         <jcc-button text="Borar" appearance="danger"></jcc-button>
       </div>
+      <div class="row">
+        <h3>
+          Modal
+        </h3>
+        <div class="row">
+          <jcc-button id="open-modal" text="Open Modal" appearance="primary"></jcc-button>
+          <jcc-modal buttons='[{"text": "Confirmar"},{"text": "Cancelar"}]' header="Header del Modal" appearance="warning">
+            <p>
+              Algun mensaje para mostrar en el body del modal.
+            </p>
+          </jcc-modal>
+        </div>      
+      </div>
     </div>
     <script>
-      
+      //Ejemplo de click en boton
       var btnAceptar = document.querySelector('#btnAceptar');
       btnAceptar.addEventListener('click', function () {
         alert("Ejemplo de click");
       });
 
+      //Ejemplo de apertura de modal
+      var button = document.querySelector('#open-modal');
+      var modal = document.querySelector('jcc-modal');
+      button.addEventListener('click', function () {
+        modal.isopen = true;
+      });
+      modal.addEventListener('action', function () {
+        console.log('Confirmación aceptada');
+        modal.isopen = false;
+      });
     </script>
   </body>
 </html>

@@ -10,6 +10,13 @@ export namespace Components {
         "appearance": string;
         "text": string;
     }
+    interface JccModal {
+        "appearance": string;
+        "buttons": string;
+        "closeIcon": string;
+        "header": string;
+        "isopen": boolean;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -32,6 +39,12 @@ declare global {
         prototype: HTMLJccButtonElement;
         new (): HTMLJccButtonElement;
     };
+    interface HTMLJccModalElement extends Components.JccModal, HTMLStencilElement {
+    }
+    var HTMLJccModalElement: {
+        prototype: HTMLJccModalElement;
+        new (): HTMLJccModalElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -40,6 +53,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "jcc-button": HTMLJccButtonElement;
+        "jcc-modal": HTMLJccModalElement;
         "my-component": HTMLMyComponentElement;
     }
 }
@@ -47,6 +61,14 @@ declare namespace LocalJSX {
     interface JccButton {
         "appearance"?: string;
         "text"?: string;
+    }
+    interface JccModal {
+        "appearance"?: string;
+        "buttons"?: string;
+        "closeIcon"?: string;
+        "header"?: string;
+        "isopen"?: boolean;
+        "onAction"?: (event: CustomEvent<any>) => void;
     }
     interface MyComponent {
         /**
@@ -64,6 +86,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "jcc-button": JccButton;
+        "jcc-modal": JccModal;
         "my-component": MyComponent;
     }
 }
@@ -72,6 +95,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "jcc-button": LocalJSX.JccButton & JSXBase.HTMLAttributes<HTMLJccButtonElement>;
+            "jcc-modal": LocalJSX.JccModal & JSXBase.HTMLAttributes<HTMLJccModalElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
