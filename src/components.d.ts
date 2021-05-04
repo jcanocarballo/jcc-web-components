@@ -17,19 +17,12 @@ export namespace Components {
         "header": string;
         "isopen": boolean;
     }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface JccPersonalCard {
+        "firstName": string;
+        "lastName": string;
+        "photo": string;
+        "resume": string;
+        "role": string;
     }
 }
 declare global {
@@ -45,16 +38,16 @@ declare global {
         prototype: HTMLJccModalElement;
         new (): HTMLJccModalElement;
     };
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLJccPersonalCardElement extends Components.JccPersonalCard, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLJccPersonalCardElement: {
+        prototype: HTMLJccPersonalCardElement;
+        new (): HTMLJccPersonalCardElement;
     };
     interface HTMLElementTagNameMap {
         "jcc-button": HTMLJccButtonElement;
         "jcc-modal": HTMLJccModalElement;
-        "my-component": HTMLMyComponentElement;
+        "jcc-personal-card": HTMLJccPersonalCardElement;
     }
 }
 declare namespace LocalJSX {
@@ -70,24 +63,17 @@ declare namespace LocalJSX {
         "isopen"?: boolean;
         "onAction"?: (event: CustomEvent<any>) => void;
     }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface JccPersonalCard {
+        "firstName"?: string;
+        "lastName"?: string;
+        "photo"?: string;
+        "resume"?: string;
+        "role"?: string;
     }
     interface IntrinsicElements {
         "jcc-button": JccButton;
         "jcc-modal": JccModal;
-        "my-component": MyComponent;
+        "jcc-personal-card": JccPersonalCard;
     }
 }
 export { LocalJSX as JSX };
@@ -96,7 +82,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "jcc-button": LocalJSX.JccButton & JSXBase.HTMLAttributes<HTMLJccButtonElement>;
             "jcc-modal": LocalJSX.JccModal & JSXBase.HTMLAttributes<HTMLJccModalElement>;
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "jcc-personal-card": LocalJSX.JccPersonalCard & JSXBase.HTMLAttributes<HTMLJccPersonalCardElement>;
         }
     }
 }
